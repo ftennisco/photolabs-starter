@@ -1,10 +1,16 @@
 .photo-list {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.photo-details-modal .photo-list {
+  flex-direction: row;
 }
 
 .photo-list:after {
