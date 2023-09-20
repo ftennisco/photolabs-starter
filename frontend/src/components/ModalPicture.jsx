@@ -3,7 +3,7 @@ import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
 
-const PhotoListItem = (props) => {
+const ModalPicture = (props) => {
   const { id, location, user, urls } = props.photoData;
 
   const handlePhotoClick = () => {
@@ -11,12 +11,12 @@ const PhotoListItem = (props) => {
   };
 
   return (
-    <div className={props.imageClass}>
+    <div className="photo-list__item">
       <PhotoFavButton toggleFavorite={props.toggleFavorite} favorites={props.favorites} id={id} />
       <img
         src={urls.regular}
         alt={`Photo ${id}`}
-        className={"photo-list__image"}
+        className="photo-details-modal__image"
         onClick={handlePhotoClick}
       />
       <div className="photo-list__user-details">
@@ -32,4 +32,4 @@ const PhotoListItem = (props) => {
   );
 };
 
-export default PhotoListItem;
+export default ModalPicture;
