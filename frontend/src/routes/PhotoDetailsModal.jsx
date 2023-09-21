@@ -10,7 +10,6 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favorites, toggleFavorit
     closeModal();
   };
 
-  console.log("Selected Photo", selectedPhoto)
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={handleCloseClick}>

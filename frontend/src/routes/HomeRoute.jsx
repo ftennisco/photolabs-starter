@@ -5,14 +5,14 @@ import PhotoList from 'components/PhotoList';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
-const HomeRoute = ({ openModal, setSelectedPhoto, favorites, toggleFavorite }) => {
+const HomeRoute = ({ openModal, favorites, toggleFavorite }) => {
 
   const [isLiked, setIsLiked] = useState(false);
 
 
   const handlePhotoClick = (photoId) => {
-    setSelectedPhoto(photos.find((photo) => photo.id === photoId));
-    openModal();
+    const photo = photos.find((photo) => photo.id === photoId);
+    openModal(photo);
   }
 
   return (
