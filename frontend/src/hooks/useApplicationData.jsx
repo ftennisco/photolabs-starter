@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { useReducer } from "react";
 
 const initialState = {
   isModalOpen: false,
   selectedPhoto: null,
   favorites: [],
+  applicationData: null,
 };
 
 const reducer = (state, action) => {
@@ -22,13 +22,14 @@ const reducer = (state, action) => {
       return { ...state, selectedPhoto: action.photo, isModalOpen: true };
     case "CLOSE_MODAL":
       return { ...state, isModalOpen: false };
+    case "SET_APPLICATION_DATA":
+      return { ...state, applicationData: action.data };
     default:
       return state;
   }
 };
 
 const useApplicationData = () => {
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const toggleFavorite = (photoId) => {
@@ -43,13 +44,19 @@ const useApplicationData = () => {
     dispatch({ type: "CLOSE_MODAL" });
   };
 
+  const setApplicationData = (data) => {
+    dispatch({ type: "SET_APPLICATION_DATA", data });
+  };
+
   return {
     isModalOpen: state.isModalOpen,
     selectedPhoto: state.selectedPhoto,
     favorites: state.favorites,
+    applicationData: state.applicationData,
     toggleFavorite,
     openModal,
-    closeModal
+    closeModal,
+    setApplicationData,
   };
 };
 
