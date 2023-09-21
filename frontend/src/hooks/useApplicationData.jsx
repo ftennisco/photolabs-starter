@@ -16,7 +16,7 @@ const reducer = (state, action) => {
         );
         return { ...state, favorites: copyOfFavorites };
       } else {
-        return { ...state, favorites: [...state.favorites, action.photoID] };
+        return { ...state, favorites: [...state.favorites, action.photoId] };
       }
     case "OPEN_MODAL":
       return { ...state, selectedPhoto: action.photo, isModalOpen: true };
