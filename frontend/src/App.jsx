@@ -13,11 +13,19 @@ const App = () => {
     toggleFavorite,
     openModal,
     closeModal,
+    photoData,
+    topicData,
   } = useApplicationData();
 
   return (
     <div className="App">
-      <HomeRoute openModal={openModal} favorites={favorites} toggleFavorite={toggleFavorite} />
+      <HomeRoute
+        openModal={openModal}
+        favorites={favorites}
+        toggleFavorite={toggleFavorite}
+        photoData={photoData}
+        topicData={topicData}
+      />
       {isModalOpen && <PhotoDetailsModal closeModal={closeModal} selectedPhoto={selectedPhoto} favorites={favorites} toggleFavorite={toggleFavorite} />}
     </div>
   );
