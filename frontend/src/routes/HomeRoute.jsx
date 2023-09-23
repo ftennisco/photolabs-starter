@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
 
-const HomeRoute = ({ openModal, favorites, toggleFavorite }) => {
-
-  const [isLiked, setIsLiked] = useState(false);
-
-
+const HomeRoute = ({ openModal, favorites, toggleFavorite, photoData, photosByTopic, topicData, fetchPhotosByTopic }) => {
   const handlePhotoClick = (photoId) => {
-    const photo = photos.find((photo) => photo.id === photoId);
+    const photo = photoData.find((photo) => photo.id === photoId);
     openModal(photo);
   }
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} favorites={favorites} />
-      <PhotoList photos={photos} toggleFavorite={toggleFavorite} favorites={favorites} onPhotoClick={handlePhotoClick} imageClass={"photo-list__item"} />
+      <TopNavigation topics={topicData} favorites={favorites} fetchPhotosByTopic={fetchPhotosByTopic} />
+      <PhotoList
+        photos={photoData}
+        toggleFavorite={toggleFavorite}
+        favorites={favorites}
+        onPhotoClick={handlePhotoClick}
+        imageClass={"photo-list__item"}
+      />
     </div>
   );
 };

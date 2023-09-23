@@ -6,6 +6,7 @@ const ACTIONS = {
   CLOSE_MODAL: "CLOSE_MODAL",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SET_PHOTOS_BY_TOPIC: "SET_PHOTOS_BY_TOPIC",
 }
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   favorites: [],
   photoData: [],
   topicData: [],
+  photosByTopic: [],
 };
 
 const reducer = (state, action) => {
@@ -40,8 +42,24 @@ const reducer = (state, action) => {
   }
 };
 
+
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const fetchPhotosByTopic = async (topicId) => {
+    try {
+      const response = await fetch(`/api/topics/photos/${topicId}`);
+
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+      } else {
+        console.error("Failed to fetch photos by topic");
+      }
+    } catch (error) {
+      console.error("Error while fetching photos by topic:", error);
+    }
+  };
 
   const toggleFavorite = (photoId) => {
     dispatch({ type: ACTIONS.TOGGLE_FAVORITE, photoId });
@@ -86,6 +104,7 @@ const useApplicationData = () => {
       }
     }
 
+
     fetchPhotoData();
     fetchTopicData();
   }, []);
@@ -97,9 +116,11 @@ const useApplicationData = () => {
     favorites: state.favorites,
     photoData: state.photoData,
     topicData: state.topicData,
+    photosByTopic: state.photosByTopic,
     toggleFavorite,
     openModal,
     closeModal,
+    fetchPhotosByTopic,
   };
 };
 

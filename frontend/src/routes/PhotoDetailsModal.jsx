@@ -15,11 +15,11 @@ const PhotoDetailsModal = ({ closeModal, selectedPhoto, favorites, toggleFavorit
       <button className="photo-details-modal__close-button" onClick={handleCloseClick}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <ModalPicture photoData={selectedPhoto} favorites={favorites} toggleFavorite={toggleFavorite} />
+      <ModalPicture photoData={selectedPhoto} favorites={favorites} onPhotoClick={() => { }} toggleFavorite={toggleFavorite} />
       <div className='photo-details-modal__header'>
         <p>Similar Photos</p>
       </div>
-      <PhotoList photos={Object.values(selectedPhoto.similar_photos)} toggleFavorite={toggleFavorite} favorites={favorites} imageClass={'photo-details-modal__images'} />
+      <PhotoList photos={Object.values(selectedPhoto.similar_photos)} onPhotoClick={() => { }} toggleFavorite={toggleFavorite} favorites={favorites} imageClass={'photo-details-modal__images'} />
     </div>
   )
 };

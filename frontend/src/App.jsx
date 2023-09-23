@@ -15,6 +15,7 @@ const App = () => {
     closeModal,
     photoData,
     topicData,
+    fetchPhotosByTopic,
   } = useApplicationData();
 
   return (
@@ -25,6 +26,7 @@ const App = () => {
         toggleFavorite={toggleFavorite}
         photoData={photoData}
         topicData={topicData}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       {isModalOpen && <PhotoDetailsModal closeModal={closeModal} selectedPhoto={selectedPhoto} favorites={favorites} toggleFavorite={toggleFavorite} />}
     </div>
