@@ -2,8 +2,10 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
-![image](https://github.com/ftennisco/photolabs-starter/assets/121519683/6888f2dd-acbe-47b2-b9d0-d2f5b0c3a31c)
-![image](https://github.com/ftennisco/photolabs-starter/assets/121519683/21a576c8-b520-4eaf-a491-d7adab583ad9)
+
+# Screenshots
+![PhotolabsHomepage](https://github.com/ftennisco/photolabs-starter/assets/121519683/6888f2dd-acbe-47b2-b9d0-d2f5b0c3a31c)
+![PhotolabsModal](https://github.com/ftennisco/photolabs-starter/assets/121519683/21a576c8-b520-4eaf-a491-d7adab583ad9)
 
 ## Setup
 
