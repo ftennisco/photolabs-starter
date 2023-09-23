@@ -2,6 +2,7 @@
 The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
+The Photolabs project displays pictures taken from a database, formatted to fit your screen, with simple fuctionality to navigate the page.
 
 # Screenshots
 ![PhotolabsHomepage](https://github.com/ftennisco/photolabs-starter/assets/121519683/6888f2dd-acbe-47b2-b9d0-d2f5b0c3a31c)
